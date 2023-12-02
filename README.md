@@ -7,7 +7,7 @@ This repository contains my solutions for [Advent of Code](https://adventofcode.
 | Day | Part 1 | Part 2 | Solution                       |
 |-----|:------:|:------:|--------------------------------|
 | 1   |   ✓    |   ✓    | [Day01.kt](src/day01/Day01.kt) |
-| 2   |        |        |                                |
+| 2   |   ✓    |   ✓    | [Day02.kt](src/day02/Day02.kt) |
 | 3   |        |        |                                |
 | 4   |        |        |                                |
 | 5   |        |        |                                |
