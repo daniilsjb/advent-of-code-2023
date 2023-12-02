@@ -28,7 +28,7 @@ private fun part1(data: List<String>): Int =
     data.map { it.mapNotNull(Char::digitToIntOrNull) }
         .sumOf { it.first() * 10 + it.last() }
 
-val spelledDigits = mapOf(
+private val spelledDigits = mapOf(
     "one"   to 1,
     "two"   to 2,
     "three" to 3,
