@@ -21,13 +21,13 @@ fun main() {
     println("Answer: $answer2")
 }
 
-data class CubeSet(
+private data class CubeSet(
     val redCount: Int,
     val blueCount: Int,
     val greenCount: Int,
 )
 
-data class Game(
+private data class Game(
     val id: Int,
     val sets: List<CubeSet>,
 )
