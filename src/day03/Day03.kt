@@ -22,13 +22,14 @@ fun main() {
 }
 
 private data class Part(
-    val position: Pair<Int, Int>,
-    val length: Int,
+    val rx: IntRange,
+    val ry: IntRange,
     val value: Int,
 )
 
 private data class Symbol(
-    val position: Pair<Int, Int>,
+    val x: Int,
+    val y: Int,
     val value: Char,
 )
 
@@ -49,32 +50,28 @@ private fun parse(path: String): Schematic {
             .partition { it.value[0].isDigit() }
 
         parts.addAll(matchedParts.map {
-            val x = it.range.first
-            val end = it.range.last
-            Part(x to y, end - x + 1, it.value.toInt())
+            val a = it.range.first
+            val b = it.range.last
+
+            val rx = (a - 1)..(b + 1)
+            val ry = (y - 1)..(y + 1)
+
+            Part(rx, ry, it.value.toInt())
         })
 
         symbols.addAll(matchedSymbols.map {
-            val x = it.range.first
-            Symbol(x to y, it.value[0])
+            Symbol(x = it.range.first, y, it.value[0])
         })
     }
 
     return Schematic(parts, symbols)
 }
 
-private fun Symbol.within(rx: IntRange, ry: IntRange): Boolean =
-    position.let { (sx, sy) -> (sx in rx) && (sy in ry) }
-
 private fun part1(data: Schematic): Int {
     val (parts, symbols) = data
-    return parts.sumOf { part ->
-        val (px, py) = part.position
-        val rx = (px - 1)..(px + part.length)
-        val ry = (py - 1)..(py + 1)
-
-        if (symbols.any { it.within(rx, ry) }) {
-            part.value
+    return parts.sumOf { (rx, ry, value) ->
+        if (symbols.any { (sx, sy) -> (sx in rx) && (sy in ry) }) {
+            value
         } else {
             0
         }
@@ -84,18 +81,13 @@ private fun part1(data: Schematic): Int {
 private fun part2(data: Schematic): Int {
     val (parts, symbols) = data
     val gears = symbols.filter { it.value == '*' }
-    return gears.sumOf { symbol ->
-        val adjacentParts = parts.filter { part ->
-            val (px, py) = part.position
-            val rx = (px - 1)..(px + part.length)
-            val ry = (py - 1)..(py + 1)
-            symbol.within(rx, ry)
+    return gears.sumOf { (sx, sy) ->
+        val adjacentNumbers = parts.mapNotNull { (rx, ry, value) ->
+            if ((sx in rx) && (sy in ry)) value else null
         }
 
-        if (adjacentParts.count() == 2) {
-            adjacentParts
-                .map(Part::value)
-                .reduce(Int::times)
+        if (adjacentNumbers.count() == 2) {
+            adjacentNumbers.reduce(Int::times)
         } else {
             0
         }
