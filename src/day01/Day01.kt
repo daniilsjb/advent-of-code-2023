@@ -5,20 +5,17 @@ import java.io.File
 fun main() {
     val data = parse("src/day01/Day01.txt")
 
-    val answer1 = part1(data)
-    val answer2 = part2(data)
-
     println("🎄 Day 01 🎄")
 
     println()
 
     println("[Part 1]")
-    println("Answer: $answer1")
+    println("Answer: ${part1(data)}")
 
     println()
 
     println("[Part 2]")
-    println("Answer: $answer2")
+    println("Answer: ${part2(data)}")
 }
 
 private fun parse(path: String): List<String> =

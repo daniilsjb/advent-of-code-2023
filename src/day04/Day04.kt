@@ -6,20 +6,17 @@ import kotlin.math.pow
 fun main() {
     val data = parse("src/day04/Day04.txt")
 
-    val answer1 = part1(data)
-    val answer2 = part2(data)
-
     println("🎄 Day 04 🎄")
 
     println()
 
     println("[Part 1]")
-    println("Answer: $answer1")
+    println("Answer: ${part1(data)}")
 
     println()
 
     println("[Part 2]")
-    println("Answer: $answer2")
+    println("Answer: ${part2(data)}")
 }
 
 private fun String.toMatches(): Int {
