@@ -12,7 +12,7 @@ This repository contains my solutions for [Advent of Code](https://adventofcode.
 | 4   |   ✓    |   ✓    | [Day04.kt](src/day04/Day04.kt) |
 | 5   |   ✓    |   ✓    | [Day05.kt](src/day05/Day05.kt) |
 | 6   |   ✓    |   ✓    | [Day06.kt](src/day06/Day06.kt) |
-| 7   |        |        |                                |
+| 7   |   ✓    |   ✓    | [Day07.kt](src/day07/Day07.kt) |
 | 8   |        |        |                                |
 | 9   |        |        |                                |
 | 10  |        |        |                                |
