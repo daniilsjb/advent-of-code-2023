@@ -20,7 +20,7 @@ This repository contains my solutions for [Advent of Code](https://adventofcode.
 | 12  |        |        |                                |
 | 13  |   ✓    |   ✓    | [Day13.kt](src/day13/Day13.kt) |
 | 14  |   ✓    |   ✓    | [Day14.kt](src/day14/Day14.kt) |
-| 15  |        |        |                                |
+| 15  |   ✓    |   ✓    | [Day15.kt](src/day15/Day15.kt) |
 | 16  |        |        |                                |
 | 17  |        |        |                                |
 | 18  |        |        |                                |
